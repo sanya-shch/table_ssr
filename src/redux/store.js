@@ -1,10 +1,17 @@
-import { createStore, applyMiddleware, compose } from "redux";
+// @flow
+
+import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers";
+import type { Store as AppState } from "./reducers/tableReducer";
+import { composeWithDevTools } from "redux-devtools-extension";
+import type { Store } from "redux";
+import type { ActionType } from "./actions/tableActions";
 
-const composeEnhancers =
-  typeof window !== "undefined"
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : compose;
-
-export default () => createStore(reducers, {}, composeEnhancers(applyMiddleware()));
-
+export default () => {
+  const store: Store<AppState, ActionType> = createStore(
+    reducers,
+    {},
+    composeWithDevTools(applyMiddleware())
+  );
+  return store;
+};

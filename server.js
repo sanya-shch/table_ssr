@@ -2,10 +2,10 @@ import "@babel/polyfill";
 import React from "react";
 import { renderToString } from "react-dom/server";
 import { Provider } from "react-redux";
-import { setTable } from "./redux/actions/tableActions";
-import App from "./App";
-import createStore from "./redux/store";
-import { assetsByChunkName } from "../dist/stats.json";
+import { setTable } from "./src/redux/actions/tableActions";
+import App from "./src/App";
+import createStore from "./src/redux/store";
+import { assetsByChunkName } from "./dist/stats.json";
 
 import http from "http";
 import fs from "fs";

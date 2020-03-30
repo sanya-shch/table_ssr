@@ -1,18 +1,14 @@
+// @flow
+
 import "@babel/polyfill";
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
 import App from "./App";
-
 import reducers from "./redux/reducers";
-
-import "./style.scss";
-
-const composeEnhancers =
-  typeof window !== "undefined"
-    ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
-    : compose;
+import "./index.css";
 
 let state;
 if (typeof window !== "undefined") {
@@ -20,11 +16,19 @@ if (typeof window !== "undefined") {
   delete window.__PRELOADED_STATE__;
 }
 
-const store = createStore(reducers, state, composeEnhancers(applyMiddleware()));
-
-ReactDOM.hydrate(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  document.querySelector("#root")
+const store = createStore(
+  reducers,
+  state,
+  composeWithDevTools(applyMiddleware())
 );
+
+const root = document.getElementById("root");
+
+if (root !== null) {
+  ReactDOM.hydrate(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    root
+  );
+}

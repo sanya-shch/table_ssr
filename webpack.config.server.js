@@ -7,7 +7,7 @@ const baseConfig = require("./webpack.config.base");
 module.exports = merge(baseConfig, {
   mode: "production",
   target: "node",
-  entry: "./src/server.js",
+  entry: "./server.js",
   externals: [webpackNodeExternals()],
   output: {
     filename: "server.js",
@@ -16,7 +16,7 @@ module.exports = merge(baseConfig, {
   module: {
     rules: [
       {
-        test: /\.scss$/,
+        test: /\.css$/,
         use: "null-loader"
       }
     ]
