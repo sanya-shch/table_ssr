@@ -1,0 +1,52 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.App {
+  min-height: 100vh;
+  min-width: fit-content;
+  overflow-x: auto;
+}
+.form {
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 400px;
+}
+.form input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+}
+table {
+  border-collapse: collapse;
+  table-layout: fixed;
+  width: 100%;
+}
+td {
+  margin: 0;
+  width: 60px;
+  padding: 5px;
+  border: 1px solid black;
+  text-align: center;
+}
+.tableCell {
+  background-color: #a2a9af;
+}
+.addBtn {
+  background-color: #96ceb4;
+}
+.delBtn {
+  background-color: #d9534f;
+}
+.closeValue {
+  background-color: #f4f0e6;
+}
+.tableCell:hover {
+  background-color: #d9d9f3;
+}
